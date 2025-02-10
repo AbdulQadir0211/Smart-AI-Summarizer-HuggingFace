@@ -1,0 +1,15 @@
+streamlit
+langchain
+langchain-community
+faiss-cpu
+chromadb
+sentence-transformers
+transformers
+torch
+PyMuPDF
+beautifulsoup4
+requests 
+speechrecognition
+yt-dlp
+whisper
+youtube-transcript-api
