@@ -1,12 +1,21 @@
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.schema import Document  # Required for storing documents properly
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+# Retrieve the Hugging Face API token
+hf_api_token = os.getenv("HUGGINGFACE_API_KEY")
 
 # Load embeddings model
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
-# Initialize FAISS Vector Store
-vector_db = FAISS(embeddings)
+# Initialize FAISS with at least one document
+sample_doc = [Document(page_content="This is a placeholder document.")]
+vector_db = FAISS.from_documents(sample_doc, embeddings)
 
 def store_summary_in_db(summary, source):
     """Stores summarized text in FAISS vector database."""

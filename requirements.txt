@@ -13,3 +13,11 @@ speechrecognition
 yt-dlp
 whisper
 youtube-transcript-api
+matplotlib
+plotly
+paddleocr
+smtplib
+email-validator
+pdf2image
+pytesseract
+paddlepaddle
