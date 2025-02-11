@@ -3,8 +3,8 @@ from modules.summarization import generate_summary
 from modules.pdf_processing import extract_text_from_pdf, ocr_pdf
 from modules.web_scrapping import extract_text_from_url
 from modules.youtube_transcript import transcribe_youtube
-#from modules.vector_db import store_summary_in_db, retrieve_similar_summaries
-#from modules.rag_chatbot import rag_qa
+from modules.vector_db import store_summary_in_db, retrieve_similar_summaries
+from modules.rag_chatbot import rag_qa
 from modules.email_service import send_summary_via_email
 from modules.multimodal import summarize_multimodal
 from modules.analytics import show_summary_stats
@@ -91,7 +91,7 @@ if st.button("Summarize"):
         st.warning("⚠️ Please provide input to summarize!")
 
 # 🔍 Vector Search: Retrieve Similar Summaries
-'''
+
 st.subheader("🔍 Retrieve Similar Summaries")
 search_query = st.text_input("Enter a topic to find similar summaries:")
 if st.button("Search Summaries"):
@@ -102,8 +102,8 @@ if st.button("Search Summaries"):
     else:
         st.warning("No similar summaries found.")
 
-'''
-'''
+
+
 # 💬 RAG Chatbot for Q&A
 st.subheader("💬 Ask Questions About the Summary")
 question = st.text_input("Enter your question:")
@@ -113,4 +113,4 @@ if st.button("Get Answer"):
         st.write("**AI Answer:**", answer)
     else:
         st.warning("⚠️ Please enter a question!")
-'''
+

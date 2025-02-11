@@ -15,7 +15,7 @@ from langchain_community.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain.embeddings import HuggingFaceEmbeddings
-from modules.get_embeddings import get_huggingface_llm
+from modules.get_embeddings import get_huggingface_embeddings
 
 def get_vectorstore_from_url(url):
     # get the text in document form
