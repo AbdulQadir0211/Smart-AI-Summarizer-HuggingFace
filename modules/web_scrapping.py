@@ -15,7 +15,7 @@ from langchain_community.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain.embeddings import HuggingFaceEmbeddings
-from modules.get_embeddings import get_huggingface_embeddings
+from modules.get_embeddings import get_huggingface_llm
 
 def get_vectorstore_from_url(url):
     # get the text in document form
@@ -27,7 +27,7 @@ def get_vectorstore_from_url(url):
     document_chunks = text_splitter.split_documents(document)
     
     # create a vectorstore from the chunks using HuggingFace embeddings
-    vector_store = Chroma.from_documents(document_chunks, get_huggingface_embeddings())
+    vector_store = Chroma.from_documents(document_chunks, get_huggingface_ll())
 
     return vector_store
 
