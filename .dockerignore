@@ -1,0 +1,42 @@
+# Ignore system files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+
+sum
+
+# Ignore environment files
+.env
+.vscode/
+.idea/
+*.log
+
+# Ignore virtual environments
+venv/
+sum/
+*.egg-info
+pip-wheel-metadata/
+
+# Ignore data files (if any)
+*.db
+*.sqlite
+*.json
+*.csv
+data/
+output/
+temp/
+
+# Ignore model files (if not needed inside the container)
+models/
+*.pt
+*.h5
+*.onnx
+
+# Ignore Streamlit cache
+.streamlit/
+
+# Ignore Docker-related files
+docker-compose.yml
+.dockerignore
