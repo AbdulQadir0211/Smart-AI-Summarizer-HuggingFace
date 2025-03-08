@@ -4,9 +4,11 @@ from modules.llm_manager import get_llm
 
 from langchain.chains.summarize import load_summarize_chain
 from modules.llm_manager import get_llm
+from modules.vector_store import store_text
 
 
-'''def summarize_content(text, model_name):
+def summarize_content(text, model_name):
+
     """Summarizes text using the selected LLM and ensures proper response formatting."""
     llm = get_llm(model_name)
     
@@ -16,12 +18,15 @@ from modules.llm_manager import get_llm
 
         # 🔹 Handle different response formats
         if isinstance(response, str):
+            store_text(response, {"type": "summary"})
             return response  # Direct string response
 
         elif hasattr(response, "content"):
+            store_text(response.content, {"type": "summary"})
             return response.content  # Extract content attribute
 
         elif hasattr(response, "page_content"):
+            store_text(response.page_content, {"type": "summary"})
             return response.page_content  # Some LLMs use page_content
 
         else:
@@ -29,6 +34,10 @@ from modules.llm_manager import get_llm
 
     except Exception as e:
         return f"Error while summarizing: {str(e)}"
+
+
+
+
 
 '''
 
@@ -47,3 +56,4 @@ def summarize_content(text, model_name):
     store_text(summary, {"type": "summary"})
     
     return summary
+'''

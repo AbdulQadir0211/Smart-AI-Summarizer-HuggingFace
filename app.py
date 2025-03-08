@@ -35,7 +35,8 @@ if option == "YouTube Video":
             store_text(summary, {"type": "summary"})
 
             st.subheader("📄 Summary:")
-            st.write(summary)
+            st.markdown(summary.replace("\n", "  \n"))
+            
 
 elif option == "PDF Document":
     pdf_file = st.file_uploader("Upload PDF", type=["pdf"])
@@ -54,7 +55,8 @@ elif option == "PDF Document":
             store_text(summary, {"type": "summary"})
 
             st.subheader("📄 Summary:")
-            st.write(summary)
+            st.markdown(summary.replace("\n", "  \n"))
+            
 
 elif option == "Website":
     web_url = st.text_input("Enter Website URL:")
@@ -69,7 +71,7 @@ elif option == "Website":
             store_text(summary, {"type": "summary"})
 
             st.subheader("📄 Summary:")
-            st.write(summary)
+            st.markdown(summary.replace("\n", "  \n"))
 
 # 🔹 **RAG-Based QnA Chatbot**
 st.sidebar.subheader("💬 Chat with Extracted Text / Summary")
@@ -79,8 +81,28 @@ query = st.sidebar.text_input("Ask a question:")
 if st.sidebar.button("Get Answer"):
     context_type = "summary" if chat_mode == "Summary" else "extracted_text"
     response = answer_question(query, model_name, context_type)
-    st.sidebar.subheader("🤖 AI Response:")
-    st.sidebar.write(response)
+    response = response.page_content if hasattr(response, "page_content") else str(response)
+    if isinstance(response, str):
+    
+            
+        st.sidebar.subheader("🤖 AI Response:")
+        st.sidebar.write(response.replace("\n", "  \n"))
+
+    elif hasattr(response, "content"):
+
+        st.sidebar.subheader("🤖 AI Response:")
+        st.sidebar.write(response.replace("\n", "  \n"))
+
+    elif hasattr(response, "page_content"):
+        st.sidebar.subheader("🤖 AI Response:")
+
+        st.sidebar.write(response.replace("\n", "  \n"))
+
+    else:
+        st.sidebar.subheader("🤖 AI Response:")
+        st.sidebar.write(response.replace("\n", "  \n"))
+    #st.sidebar.subheader("🤖 AI Response:")
+    #st.sidebar.write(response.replace("\n", "  \n"))
 
 # 📊 **Show Analytics Dashboard**
 if st.sidebar.button("Show Analytics"):
