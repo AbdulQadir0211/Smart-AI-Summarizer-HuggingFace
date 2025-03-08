@@ -13,3 +13,4 @@ tiktoken
 youtube-transcript-api
 langchain-chroma
 sentence-transformers
+pytesseract
