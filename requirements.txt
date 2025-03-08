@@ -12,3 +12,4 @@ uvicorn
 tiktoken 
 youtube-transcript-api
 langchain-chroma
+sentence-transformers
