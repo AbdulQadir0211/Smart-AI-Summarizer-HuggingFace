@@ -1,5 +1,6 @@
 langchain
 langchain_groq
+langchain-community
 pytube 
 PyPDF2
 pdf2image 
@@ -10,3 +11,4 @@ fastapi
 uvicorn 
 tiktoken 
 youtube-transcript-api
+langchain-chroma
